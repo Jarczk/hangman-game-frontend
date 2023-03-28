@@ -1,0 +1,16 @@
+.winner {
+    color: green;
+}
+
+.looser {
+    color: red;
+}
+
+.normal {
+    color: black
+}
+
+.keyboardDisabled {
+    filter: brightness(55%) !important;
+    pointer-events: none !important;
+}
