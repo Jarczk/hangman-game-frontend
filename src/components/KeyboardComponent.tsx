@@ -48,7 +48,7 @@ function KeyboardComponent(props: { onInputChange: (arg0: React.SetStateAction<s
       />
    */
   return (
-    <div style={{maxWidth: "1200px"}}>
+    <div style={{width: 1200}}>
 
       <Keyboard
         keyboardRef={r => (keyboard.current = r)}

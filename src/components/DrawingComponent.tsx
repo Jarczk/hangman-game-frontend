@@ -5,7 +5,7 @@ const DrawingComponent = (props: { counter: number }) => {
         width: "50px",
         height: "50px",
         borderRadius: "100%",
-        border: "10px solid black",
+        border: "10px solid grey",
         position: "absolute",
         top: "50px",
         right: "-30px",
@@ -18,7 +18,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         width: "10px",
         height: "100px",
-        background: "black",
+        background: "grey",
         position: "absolute",
         top: "120px",
         right: 0,
@@ -31,7 +31,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         width: "100px",
         height: "10px",
-        background: "black",
+        background: "grey",
         position: "absolute",
         top: "150px",
         right: "-100px",
@@ -46,7 +46,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         width: "100px",
         height: "10px",
-        background: "black",
+        background: "grey",
         position: "absolute",
         top: "150px",
         right: "10px",
@@ -61,7 +61,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         width: "100px",
         height: "10px",
-        background: "black",
+        background: "grey",
         position: "absolute",
         top: "210px",
         right: "-90px",
@@ -76,7 +76,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         width: "100px",
         height: "10px",
-        background: "black",
+        background: "grey",
         position: "absolute",
         top: "210px",
         right: 0,
@@ -93,7 +93,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         height: "50px",
         width: "10px",
-        background: "black",
+        background: "grey",
         position: "absolute",
         top: 0,
         right: 0,
@@ -103,7 +103,7 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         height: "10px",
         width: "200px",
-        background: "black",
+        background: "grey",
         marginLeft: "120px",
       }}
     />
@@ -111,11 +111,11 @@ const DrawingComponent = (props: { counter: number }) => {
       style={{
         height: "400px",
         width: "10px",
-        background: "black",
+        background: "grey",
         marginLeft: "120px",
       }}
     />
-    <div style={{ height: "10px", width: "250px", background: "black" }} />
+    <div style={{ height: "10px", width: "250px", background: "grey" }} />
   </div>)
 }
 

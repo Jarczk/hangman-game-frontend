@@ -5,6 +5,8 @@ import TextComponent from "../components/TextComponent";
 import KeyboardComponent from "../components/KeyboardComponent";
 import DrawingComponent from "../components/DrawingComponent";
 import MessageComponent from "../components/MessageComponent";
+import {ToastContainer, toast, TypeOptions} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Game = () => {
@@ -29,20 +31,24 @@ const Game = () => {
   }, []);
 
 
+
   function checkIsWinner() {
     if (wordToGuess === guessed) { //win game
       setEnd(true)
       setWinner(true)
-      setMessage("wygrałeś")
+      toast.success('Super, wygrałeś!');
+      toast.info('Zaloguj się aby zapisać swój wynik!');
     } else if (badCounter >= 6) { //loose game
       setEnd(true)
       setWinner(false);
-      setMessage("przegrałeś")
+      toast.error(() => <div>Niestety, przegrałeś!<br/>Poszukiwane słowo: <b>{wordToGuess}</b></div>);
+      toast.info('Zaloguj się aby zapisać swój wynik!');
     }
   }
 
   const handleInputChange = (arg0: SetStateAction<string>) => {
-    if(arg0 === 'RESTART'){
+
+    if (arg0 === 'RESTART') {
       restartGame();
       return;
     }
@@ -59,11 +65,14 @@ const Game = () => {
       setGuessed(newString);
       setInputValue(inputValue + arg0);
       if (!isGood) setBads(badCounter + 1)
-    } else {
-      checkIsWinner()
     }
+    //checkIsWinner()
   }
-  useEffect(() => checkIsWinner(), [guessed])
+
+  useEffect(() => {
+    if(wordToGuess) checkIsWinner();
+
+  }, [guessed, badCounter])
 
   function restartGame() {
     setInputValue('');
@@ -76,17 +85,30 @@ const Game = () => {
   }
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>Game.tsx<br/>
-      {wordToGuess}
+    <div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>Game.tsx<br/>
+        {wordToGuess}
 
-      <DrawingComponent counter={badCounter}/>
-      <MessageComponent message={message} />
-      <TextComponent text={guessed} length={wordToGuess.length} status={isEnd} winner={isWinner}/>
-      <div><KeyboardComponent onInputChange={handleInputChange}/></div>
+        <DrawingComponent counter={badCounter}/>
+        <TextComponent text={guessed} length={wordToGuess.length} status={isEnd} winner={isWinner}/>
+        <div><KeyboardComponent onInputChange={handleInputChange}/></div>
+      </div>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={true}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </div>
   )
 }

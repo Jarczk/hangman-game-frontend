@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {toast} from "react-toastify";
 
 function RandomWord() {
   return fetch("http://localhost:5000/random", {
